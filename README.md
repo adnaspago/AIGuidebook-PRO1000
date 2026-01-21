@@ -16,7 +16,7 @@ The website focuses on:
 ## Team
 | Name  | Role / Responsibility |
 |------|------------------------|
-| Sofia Amalie Bråthen | GitHub & Project Management |
+| Sofia Amalie Bråthen | Role |
 | Ina Stiansen | Role |
 | Margit | Role |
 | Tori | Role |
