@@ -596,6 +596,60 @@ a.link:hover {
 .font-bold { font-weight: bold; }
 .text-center { text-align: center; }
 
+/* Carousel / Slider */
+.carousel {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.4s ease;
+  will-change: transform;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  flex-shrink: 0;
+  padding: 0 0.5rem;
+  box-sizing: border-box;
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 999px;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+  z-index: 1;
+}
+
+.carousel-button:hover {
+  background: rgba(255, 255, 255, 1);
+}
+
+.carousel-button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.carousel-button.prev {
+  left: 0.75rem;
+}
+
+.carousel-button.next {
+  right: 0.75rem;
+}
+
 /* Accessibility */
 .sr-only {
   position: absolute;
