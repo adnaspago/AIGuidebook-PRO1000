@@ -86,7 +86,7 @@ body {
   width: 5.5rem;
   height: 4rem;
   flex-shrink: 0;
-  object-fit: center;
+  border-radius: 15px; 
   align-self: center ;
 }
 
