@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initFontSize();
   initNavigation();
   initHamburgerMenu();
+  initAIChecklist();
   
   // Font size toggle
   const fontSizeBtn = document.getElementById('fontSizeBtn');
@@ -13,6 +14,54 @@ document.addEventListener('DOMContentLoaded', function() {
     fontSizeBtn.addEventListener('click', increaseFontSize);
   }
 });
+
+// AI Responsibility Checklist
+function initAIChecklist() {
+  const checkboxes = document.querySelectorAll('.ai-check');
+  const progressEl = document.getElementById('checklist-progress');
+  const completeEl = document.getElementById('checklist-complete');
+  const resetBtn = document.getElementById('resetChecklist');
+
+  if (!checkboxes.length || !progressEl || !completeEl || !resetBtn) return;
+
+  const updateChecklist = () => {
+    const total = checkboxes.length;
+    const checkedCount = Array.from(checkboxes).filter(c => c.checked).length;
+
+    if (progressEl) {
+      progressEl.textContent = `${checkedCount} av ${total} fullført`;
+    }
+
+    checkboxes.forEach(box => {
+      const parent = box.closest('.checklist-item');
+      if (parent) {
+        parent.classList.toggle('checked', box.checked);
+      }
+    });
+
+    if (checkedCount === total) {
+      completeEl.classList.add('visible');
+    } else {
+      completeEl.classList.remove('visible');
+    }
+  };
+
+  checkboxes.forEach(box => {
+    box.addEventListener('change', updateChecklist);
+  });
+
+  resetBtn.addEventListener('click', () => {
+    checkboxes.forEach(box => {
+      box.checked = false;
+      const parent = box.closest('.checklist-item');
+      if (parent) parent.classList.remove('checked');
+    });
+    updateChecklist();
+    checkboxes[0]?.focus();
+  });
+
+  updateChecklist();
+}
 
 // Language Functions
 // Font Size Functions
