@@ -82,15 +82,15 @@
 
         <!-- Warning Box -->
         <div class="alert-box alert-danger mb-6">
-          <div class="section-header" style="margin-bottom: 1rem;">
-            <svg class="icon-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" style="color: var(--color-red-600);">
+          <div class="section-header mb-4">
+            <svg class="icon-lg text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
             </svg>
             <div>
-              <h3 class="section-title" style="color: #7f1d1d; margin-bottom: 0.5rem;">
+              <h3 class="section-title text-red-800 mb-2">
                 <span>Advarsel: Akademisk integritet</span>
               </h3>
-              <p style="font-size: 1.125rem; color: #7f1d1d; line-height: 1.75;">
+              <p class="text-red-800-lg">
                 <strong>
                   <span>Å bruke AI uten riktig sitering regnes som plagiat og juks.</span>
                 </strong>
@@ -118,18 +118,18 @@
             </div>
           </div>
 
-          <div class="rule-details bg-blue-light" style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <div class="rule-details bg-blue-light rule-details-flex-col-gap">
             <div>
-              <h4 class="font-bold mb-4" style="font-size: 1.25rem;">
+              <h4 class="font-bold mb-4 text-xl">
                 <span>Tekstsitat:</span>
               </h4>
-              <p class="mb-3" style="font-size: 1.125rem;">
+              <p class="mb-3 text-lg">
                 <span>Når du refererer til AI i teksten din:</span>
               </p>
-              <div class="code-block" style="background: white; color: var(--color-slate-900); border: 2px solid var(--color-slate-300); padding: 1rem; border-radius: 0.5rem;">
+              <div class="code-block code-block-light">
                 (OpenAI, 2024)
               </div>
-              <p class="mt-4" style="color: var(--color-slate-700);">
+              <p class="mt-4 text-slate-700">
                 <strong>
                   <span>Eksempel i en setning:</span>
                 </strong><br>
@@ -138,13 +138,13 @@
             </div>
 
             <div>
-              <h4 class="font-bold mb-4" style="font-size: 1.25rem;">
+              <h4 class="font-bold mb-4 text-xl">
                 <span>Referanseliste:</span>
               </h4>
-              <p class="mb-3" style="font-size: 1.125rem;">
+              <p class="mb-3 text-lg">
                 <span>I referanselisten på slutten:</span>
               </p>
-              <div class="code-block" style="background: white; color: var(--color-slate-900); border: 2px solid var(--color-slate-300); padding: 1rem; border-radius: 0.5rem; overflow-x: auto;">
+              <div class="code-block code-block-light code-block-light--small-padding overflow-x-auto">
                 OpenAI. (2024). <em>ChatGPT</em> (GPT-4) [Large language model]. https://chat.openai.com
               </div>
             </div>
@@ -170,26 +170,26 @@
           </div>
 
           <div class="rule-details bg-green-light">
-            <h4 class="font-bold mb-4" style="font-size: 1.25rem;">
+              <h4 class="font-bold mb-4 text-xl">
               <span>Eksempel med prompt:</span>
             </h4>
 
             <div class="mb-4">
-              <p class="font-bold mb-2" style="color: var(--color-slate-800);">
+              <p class="font-bold mb-2 text-slate-800">
                 <span>Brukt prompt:</span>
               </p>
-              <div class="example-box" style="background: white;">
-                <p class="example-content" style="font-style: italic;">
+              <div class="example-box example-box-theme-white">
+                <p class="example-content text-italic">
                   <span>"Forklar hovedårsakene til klimaendringer på enkelt språk egnet for en høyskoleoppgave."</span>
                 </p>
               </div>
             </div>
 
             <div>
-              <p class="font-bold mb-2" style="color: var(--color-slate-800);">
+              <p class="font-bold mb-2 text-slate-800">
                 <span>Tekstsitat:</span>
               </p>
-              <div class="example-box" style="background: white;">
+              <div class="example-box example-box-theme-white">
                 <p class="example-content">
                   <span>Da ChatGPT ble bedt om å "Forklar hovedårsakene til klimaendringer på enkelt språk egnet for en høyskoleoppgave," identifiserte den klimagassutslipp som hovedfaktoren (OpenAI, 2024).</span>
                 </p>
@@ -199,35 +199,35 @@
         </div>
 
         <!-- Other AI Tools -->
-        <div class="card" style="border: 2px solid var(--color-purple-500);">
-          <h3 class="section-title" style="margin-bottom: 1.5rem;">
+        <div class="card card-border-purple">
+          <h3 class="section-title mb-6">
             <span>Sitater for andre AI-verktøy</span>
           </h3>
 
-          <div style="display: flex; flex-direction: column; gap: 1rem;">
-            <div class="example-box" style="background: #faf5ff; border-color: #e9d5ff;">
+          <div class="rule-details-flex-col-gap">
+            <div class="example-box example-box-lavender">
               <h4 class="font-bold mb-2">Google Gemini:</h4>
-              <div class="code-block" style="background: white; color: var(--color-slate-900); border: 2px solid var(--color-slate-300); padding: 0.75rem; border-radius: 0.5rem; overflow-x: auto;">
+              <div class="code-block code-block-light code-block-light--small-padding overflow-x-auto">
                 Google. (2024). <em>Gemini</em> [Large language model]. https://gemini.google.com
               </div>
             </div>
 
-            <div class="example-box" style="background: #faf5ff; border-color: #e9d5ff;">
+            <div class="example-box example-box-lavender">
               <h4 class="font-bold mb-2">Anthropic Claude:</h4>
-              <div class="code-block" style="background: white; color: var(--color-slate-900); border: 2px solid var(--color-slate-300); padding: 0.75rem; border-radius: 0.5rem; overflow-x: auto;">
+              <div class="code-block code-block-light code-block-light--small-padding overflow-x-auto">
                 Anthropic. (2024). <em>Claude</em> [Large language model]. https://claude.ai
               </div>
             </div>
 
-            <div class="example-box" style="background: #faf5ff; border-color: #e9d5ff;">
+            <div class="example-box example-box-lavender">
               <h4 class="font-bold mb-2">Microsoft Copilot:</h4>
-              <div class="code-block" style="background: white; color: var(--color-slate-900); border: 2px solid var(--color-slate-300); padding: 0.75rem; border-radius: 0.5rem; overflow-x: auto;">
+              <div class="code-block code-block-light code-block-light--small-padding overflow-x-auto">
                 Microsoft. (2024). <em>Copilot</em> [AI assistant]. https://copilot.microsoft.com
               </div>
             </div>
           </div>
 
-          <div class="alert-box alert-info mt-6" style="background: #e9d5ff; border-color: #a855f7;">
+          <div class="alert-box alert-info mt-6 alert-info-purple">
             <p>
               <strong>
                 <span>Viktig:</span>
