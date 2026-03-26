@@ -102,14 +102,31 @@ function updateFontSize() {
 
 // Navigation Active State
 function initNavigation() {
-  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  const pathParts = window.location.pathname.split('/');
+  const currentFile = pathParts[pathParts.length - 1] || 'index.html';
+  const isInPages = pathParts.includes('Pages');
+  
   const navLinks = document.querySelectorAll('.nav-link');
   
   navLinks.forEach(link => {
     const href = link.getAttribute('href');
-    if (href === currentPage || (currentPage === '' && href === 'index.html')) {
-      link.classList.add('active');
-      link.setAttribute('aria-current', 'page');
+    
+    // Remove any existing active state
+    link.classList.remove('active');
+    link.removeAttribute('aria-current');
+    
+    if (isInPages) {
+      // For pages in Pages/ directory, match the filename directly
+      if (href === currentFile) {
+        link.classList.add('active');
+        link.setAttribute('aria-current', 'page');
+      }
+    } else if (currentFile === 'index.html') {
+      // For index.html, check if href is index.html
+      if (href === 'index.html') {
+        link.classList.add('active');
+        link.setAttribute('aria-current', 'page');
+      }
     }
   });
 }
@@ -143,3 +160,57 @@ function initHamburgerMenu() {
 }
 
 // Export for use in other contexts if needed
+
+// AI Checklist Functionality
+function initChecklist() {
+  const checkboxes = document.querySelectorAll('.ai-check');
+  const completeElement = document.getElementById('checklist-complete');
+  const resetButton = document.getElementById('resetChecklist');
+
+  if (checkboxes.length === 0) return;
+
+  function updateProgress() {
+    const checkedCount = document.querySelectorAll('.ai-check:checked').length;
+    const totalCount = checkboxes.length;
+
+    if (completeElement) {
+      if (checkedCount === totalCount) {
+        completeElement.style.display = 'block';
+      } else {
+        completeElement.style.display = 'none';
+      }
+    }
+  }
+
+  // Add event listeners to checkboxes
+  checkboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', updateProgress);
+  });
+
+  // Reset button functionality
+  if (resetButton) {
+    resetButton.addEventListener('click', () => {
+      checkboxes.forEach(checkbox => {
+        checkbox.checked = false;
+      });
+      updateProgress();
+    });
+  }
+
+  // Initial update
+  updateProgress();
+}
+
+// Initialize checklist on page load
+document.addEventListener('DOMContentLoaded', function() {
+  initFontSize();
+  initNavigation();
+  initHamburgerMenu();
+  initChecklist();  // Add this line
+  
+  // Font size toggle
+  const fontSizeBtn = document.getElementById('fontSizeBtn');
+  if (fontSizeBtn) {
+    fontSizeBtn.addEventListener('click', increaseFontSize);
+  }
+});

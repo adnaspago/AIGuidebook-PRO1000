@@ -5,6 +5,153 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hva er KI - Guide for studenter</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .cards-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .cards-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* Sub-card Styles */
+    .sub-card {
+      border-radius: 0.75rem;
+      border: 2px solid;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .sub-card.correct {
+      background: #f0fdf4;
+      border-color: #22c55e;
+    }
+
+    .sub-card.incorrect {
+      background: #fef2f2;
+      border-color: #ef4444;
+    }
+
+    .sub-card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid;
+    }
+
+    .sub-card.correct .sub-card-header { border-color: #86efac; }
+    .sub-card.incorrect .sub-card-header { border-color: #fca5a5; }
+
+    .sub-card-icon {
+      width: 1.75rem;
+      height: 1.75rem;
+      flex-shrink: 0;
+    }
+
+    .sub-card.correct .sub-card-icon { color: #16a34a; }
+    .sub-card.incorrect .sub-card-icon { color: #dc2626; }
+
+    .sub-card-title {
+      font-size: 1.25rem;
+      font-weight: bold;
+    }
+
+    .sub-card.correct .sub-card-title { color: #166534; }
+    .sub-card.incorrect .sub-card-title { color: #991b1b; }
+
+    .sub-card-label {
+      font-size: 0.875rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.025em;
+      margin-bottom: 0.5rem;
+    }
+
+    .sub-card.correct .sub-card-label { color: #15803d; }
+    .sub-card.incorrect .sub-card-label { color: #b91c1c; }
+
+    .sub-card-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .sub-card-list-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      font-size: 1rem;
+      color: var(--color-slate-800);
+    }
+
+    .sub-card-list-mark {
+      flex-shrink: 0;
+      font-weight: bold;
+      font-size: 1rem;
+      margin-top: 0.125rem;
+    }
+
+    .sub-card.correct .sub-card-list-mark { color: #16a34a; }
+    .sub-card.incorrect .sub-card-list-mark { color: #dc2626; }
+
+    .sub-card-box {
+      border-radius: 0.5rem;
+      padding: 1rem;
+      border: 1px solid;
+    }
+
+    .sub-card.correct .sub-card-box {
+      background: #dcfce7;
+      border-color: #86efac;
+    }
+
+    .sub-card.incorrect .sub-card-box {
+      background: #fee2e2;
+      border-color: #fca5a5;
+    }
+
+    .sub-card-box-title {
+      font-size: 0.875rem;
+      font-weight: bold;
+      margin-bottom: 0.25rem;
+    }
+
+    .sub-card.correct .sub-card-box-title { color: #166534; }
+    .sub-card.incorrect .sub-card-box-title { color: #991b1b; }
+
+    .sub-card-box-text {
+      font-size: 1rem;
+      color: var(--color-slate-800);
+    }
+
+    .sub-card-info-box {
+      border-radius: 0.5rem;
+      padding: 1rem;
+      border: 1px solid #bbf7d0;
+      background: white;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .sub-card-info-icon {
+      width: 1rem;
+      height: 1rem;
+      flex-shrink: 0;
+      margin-top: 0.125rem;
+      color: #16a34a;
+    }
+  </style>
 </head>
 <body>
   <header class="header">
@@ -42,7 +189,7 @@
           <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
           </svg>
-          <span>Gode prompts</span>
+          <span>Prompter</span>
         </a> 
         <a href="Pages/examples.html" class="nav-link">
           <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -60,7 +207,19 @@
           <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
           </svg>
-          <span>Etikk og persovern</span>
+          <span>Etikk og personvern</span>
+        </a>
+        <a href="Pages/quotations.html" class="nav-link">
+          <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path>
+          </svg>
+          <span>Sitater</span>
+        </a>
+        <a href="Pages/ai-checklist.html" class="nav-link">
+          <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </svg>
+          <span>Bruker du AI ansvarlig?</span>
         </a>
       </div>
     </div>
@@ -114,6 +273,74 @@
               <span>Bruk AI som et verktøy - Ikke en erstatning for din egen læring og tenkning</span>
             </li>
           </ul>
+        </div>
+
+        <!-- New Section: 5 ways to use AI in studies -->
+        <div class="card hero-card mt-10">
+          <h2 class="hero-title">5 måter å bruke KI i studiearbeid</h2>
+          <p class="hero-text">Denne seksjonen viser konkrete og passende måter studenter kan bruke KI i studiene på.</p>
+        </div>
+
+        <div class="cards-grid mt-8">
+          <div class="sub-card correct">
+            <div class="sub-card-header">
+              <svg class="sub-card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <h4 class="sub-card-title">Idémyldring og oppstart av oppgaver</h4>
+            </div>
+            <div class="sub-card-box">
+              <p class="sub-card-box-text">KI kan brukes til å få forslag til problemstillinger, vinklinger eller ideer når du skal starte en oppgave. Dette kan gjøre det lettere å komme i gang dersom du står fast. Du må fortsatt selv velge retning og utvikle innholdet videre.</p>
+            </div>
+          </div>
+
+          <div class="sub-card correct">
+            <div class="sub-card-header">
+              <svg class="sub-card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <h4 class="sub-card-title">Forklaring av vanskelige begreper</h4>
+            </div>
+            <div class="sub-card-box">
+              <p class="sub-card-box-text">KI kan forklare fagbegreper eller teorier på en enklere måte. Du kan for eksempel be om en kort forklaring eller et praktisk eksempel. Dette kan hjelpe deg med å forstå pensum bedre før du arbeider videre med stoffet selv.</p>
+            </div>
+          </div>
+
+          <div class="sub-card correct">
+            <div class="sub-card-header">
+              <svg class="sub-card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <h4 class="sub-card-title">Strukturering av oppgaver</h4>
+            </div>
+            <div class="sub-card-box">
+              <p class="sub-card-box-text">KI kan foreslå en disposisjon eller struktur for en oppgave. Den kan hjelpe med å dele opp innledning, teori, analyse og konklusjon. Du bør likevel selv vurdere og tilpasse strukturen til oppgaven.</p>
+            </div>
+          </div>
+
+          <div class="sub-card correct">
+            <div class="sub-card-header">
+              <svg class="sub-card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <h4 class="sub-card-title">Språkvask og forbedring av tekst</h4>
+            </div>
+            <div class="sub-card-box">
+              <p class="sub-card-box-text">KI kan brukes til å forbedre språk, flyt og formuleringer i en tekst du allerede har skrevet. Den kan foreslå bedre setningsstruktur eller tydeligere formuleringer. Innholdet og argumentasjonen må fortsatt være ditt eget.</p>
+            </div>
+          </div>
+
+          <div class="sub-card correct">
+            <div class="sub-card-header">
+              <svg class="sub-card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <h4 class="sub-card-title">Oppsummering av pensum</h4>
+            </div>
+            <div class="sub-card-box">
+              <p class="sub-card-box-text">KI kan hjelpe med å lage korte oppsummeringer av lange tekster eller notater. Dette kan gjøre det lettere å repetere viktige temaer før eksamen eller innleveringer. Det er viktig å kontrollere at oppsummeringen stemmer med originalteksten.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
